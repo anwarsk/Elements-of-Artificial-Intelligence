@@ -4,6 +4,7 @@
 package com.main;
 
 import com.constant.Constants;
+import com.graph.Graph;
 import com.graph.GraphBuilder;
 
 /**
@@ -19,7 +20,7 @@ public class Main {
 		// TODO Auto-generated method stub
 
 		GraphBuilder graphBuider = new GraphBuilder(Constants.INPUT_FILENAME);
-		graphBuider.build();
+		Graph graph = graphBuider.build();
 	}
 
 }
