@@ -20,11 +20,23 @@ public class GraphBuilder {
 		String destination = data[1];
 		float distance = Float.parseFloat(data[2]);
 		
-		Node sourceNode = new Node(source);
-		Node destinationNode = new Node(destination);
+		Node sourceNode = graph.getNode(source);
+		if(sourceNode == null)
+		{
+			sourceNode = new Node(source);
+			graph.addNode(sourceNode);
+		}
 		
-		graph.addNode(sourceNode);
-		graph.addNode(destinationNode);
+		Node destinationNode = graph.getNode(destination);
+		if(destinationNode == null)
+		{
+			destinationNode = new Node(destination);
+			graph.addNode(destinationNode);
+		}
+		
+		sourceNode.addConnectingEdge(destinationNode, distance);
+		destinationNode.addConnectingEdge(sourceNode, distance);
+		
 		graph.addEdge(new Edge(sourceNode, destinationNode, distance));
 	}
 	
