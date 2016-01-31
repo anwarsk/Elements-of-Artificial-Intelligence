@@ -3,6 +3,9 @@
  */
 package com.main;
 
+import com.constant.Constants;
+import com.graph.GraphBuilder;
+
 /**
  * @author Anwar Shaikh
  *
@@ -15,6 +18,8 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		GraphBuilder graphBuider = new GraphBuilder(Constants.INPUT_FILENAME);
+		graphBuider.build();
 	}
 
 }
