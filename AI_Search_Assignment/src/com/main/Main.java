@@ -11,6 +11,7 @@ import com.graph.Node;
 import com.graph.Path;
 import com.search.BFS;
 import com.search.DFS;
+import com.search.IterativeDeepening;
 
 /**
  * @author Anwar Shaikh
@@ -47,7 +48,7 @@ public class Main {
 			System.exit(1);
 		}
 		
-		BFS dfs = new BFS();
+		IterativeDeepening dfs = new IterativeDeepening(3);
 		Path path = dfs.findPath(source, destination, graph);
 		
 		if(path == null)

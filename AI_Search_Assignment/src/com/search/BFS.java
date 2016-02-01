@@ -29,36 +29,6 @@ public class BFS implements SearchAlgorithm {
 		visitedNodes.add(currentNode);
 		Map<Node,Edge> nodeToPathEdgeListMap = new HashMap<Node, Edge>();
 
-		//		if(currentNode.equals(destination) == false)
-		//		{
-		//			for(Edge edge: currentNode.connectedEdges)
-		//			{
-		//				if(visitedNodes.contains(edge.destination) == false)
-		//				{
-		//					edgeQueue.add(edge);
-		//					visitedNodes.add(edge.destination);
-		//				}
-		//			}
-		//
-		//			Edge nextEdge = edgeQueue.peek();
-		//			if(nextEdge.source.equals(currentNode))
-		//			{
-		//				nextEdge = edgeQueue.poll();
-		//				path = findPath(nextEdge.destination, destination, graph);
-		//
-		//				if(path != null)
-		//				{
-		//					path.addEdge(nextEdge);
-		//				}
-		//			}
-		//		}
-		//		else
-		//		{
-		//			path = new Path();
-		//		}
-
-
-
 		do
 		{
 			for(Edge edge: currentNode.connectedEdges)
