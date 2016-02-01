@@ -42,9 +42,9 @@ public class Path {
 			{
 				pathString = edge.source.name + " > " + pathString;
 				cost = cost + edge.distance;
-			}
-			pathString = pathString + "\nTotal Cost: " + cost; 
+			} 
 		}
+		pathString = pathString + "\nTotal Cost: " + cost;
 		return pathString;
 	}
 

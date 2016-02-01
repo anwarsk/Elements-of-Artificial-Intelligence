@@ -1,5 +1,7 @@
 This is instructions file for the search program.
 
+NOTE: This program is also available at Github- https://github.com/anwarsk/Elements-of-Artificial-Intelligence/tree/master/AI_Search_Assignment
+
 The program consists of 3 search algorithms-
 
 1. Depth First Search

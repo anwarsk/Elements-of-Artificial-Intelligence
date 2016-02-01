@@ -28,19 +28,15 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-		//assert false;
 		
 		GraphBuilder graphBuider = new GraphBuilder(Constants.INPUT_FILENAME);
 		Graph graph = graphBuider.build();
 		
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Please enter 'Source','Destination','Algorithm': ");
+		System.out.println("Please enter Source,Destination,Algorithm: ");
 		String inputLine = scanner.nextLine();
 		scanner.close();
 		String[]input = inputLine.split(",");
-//		String sourceName = "Arad";
-//		String destinationName = "Bucharest";
 		
 		String sourceName = input[0];
 		String destinationName = input[1];
@@ -57,7 +53,7 @@ public class Main {
 		
 		if(destination == null)
 		{
-			System.out.println("Node with name '" + sourceName + "' does not exists!");
+			System.out.println("Node with name '" + destinationName + "' does not exists!");
 			System.exit(1);
 		}
 		
