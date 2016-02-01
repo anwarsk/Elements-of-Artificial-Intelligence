@@ -13,6 +13,6 @@ import com.graph.Path;
  */
 public interface SearchAlgorithm {
 
-	abstract public Path findPath(Node source, Node Destination, Graph graph);
+	abstract public Path findPath(Node source, Node destination, Graph graph);
 	
 }

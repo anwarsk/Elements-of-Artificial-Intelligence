@@ -12,7 +12,6 @@ public class DFS implements SearchAlgorithm {
 
 	List<Node> visitedNodes;
 	
-	
 	public DFS()
 	{
 		visitedNodes = new ArrayList<Node>();

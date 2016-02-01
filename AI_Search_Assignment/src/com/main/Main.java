@@ -9,6 +9,7 @@ import com.graph.Graph;
 import com.graph.GraphBuilder;
 import com.graph.Node;
 import com.graph.Path;
+import com.search.BFS;
 import com.search.DFS;
 
 /**
@@ -46,7 +47,7 @@ public class Main {
 			System.exit(1);
 		}
 		
-		DFS dfs = new DFS();
+		BFS dfs = new BFS();
 		Path path = dfs.findPath(source, destination, graph);
 		
 		if(path == null)
