@@ -1,1 +1,1 @@
-# This program is implementation of different inference algorithms
+## This program is implementation of different inference algorithms
