@@ -21,5 +21,8 @@ public class Constant {
 	        put("l", "Likelyhood Weighting");
 	}
 	};
+	
+	public static string inputFilePath = "./input.txt";
+	public static string outputFilePath = "/output.txt";
 			
 }
