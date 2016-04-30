@@ -19,6 +19,7 @@ public class BayesianNetwork {
 	public BayesianNetwork()
 	{
 		createDefaultBayesianNetwork();
+		System.out.println("Network Created.");
 	}
 
 	private void createDefaultBayesianNetwork()
@@ -28,10 +29,14 @@ public class BayesianNetwork {
 		// Creating Node B
 		EventNode eventNodeB = new EventNode("B");
 		eventNodeB.setProbabilityValue(0.001f);
+		
+		eventNodes.add(eventNodeB);
 
-		// Creating Node B
+		// Creating Node E
 		EventNode eventNodeE = new EventNode("E");
 		eventNodeE.setProbabilityValue(0.002f);
+		
+		eventNodes.add(eventNodeE);
 
 		// Creating Node A
 		EventNode eventNodeA = new EventNode("A");
@@ -40,6 +45,8 @@ public class BayesianNetwork {
 
 		eventNodeB.setChildNodes(eventNodeA);
 		eventNodeE.setChildNodes(eventNodeA);
+		
+		eventNodes.add(eventNodeA);
 
 
 		// Create Node J
@@ -48,13 +55,17 @@ public class BayesianNetwork {
 		eventNodeJ.setProbabilityValue(0.90f, 0.05f);
 
 		eventNodeA.setChildNodes(eventNodeJ);
+		
+		eventNodes.add(eventNodeJ);
 
-		// Create Node J
+		// Create Node M
 		EventNode eventNodeM = new EventNode("M");
 		eventNodeM.setParentNodes(eventNodeA);
 		eventNodeM.setProbabilityValue(0.70f, 0.01f);
 
 		eventNodeA.setChildNodes(eventNodeM);
+	
+		eventNodes.add(eventNodeM);
 
 	}
 }

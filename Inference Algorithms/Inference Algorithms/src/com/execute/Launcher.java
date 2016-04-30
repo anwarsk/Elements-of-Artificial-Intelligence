@@ -1,5 +1,6 @@
 package com.execute;
 
+import com.data.BayesianNetwork;
 import com.data.Constant;
 
 /**
@@ -22,7 +23,7 @@ public class Launcher {
 		
 		if(Constant.alogrithms.containsKey(algorithm))
 		{
-			
+			BayesianNetwork network = new BayesianNetwork();
 		}
 		else
 		{
