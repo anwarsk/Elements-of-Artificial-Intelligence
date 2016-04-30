@@ -28,6 +28,8 @@ public class Launcher {
 		{
 			errorMessage = "Invalid algorithm specified.";
 		}
+		
+		System.out.println(errorMessage);
 
 	}
 
