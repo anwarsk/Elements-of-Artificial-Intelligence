@@ -18,11 +18,11 @@ public class Constant {
 	        put("e", "Enumeration");
 	        put("p", "Prior Sampling");
 	        put("r", "Rejection Sampling");
-	        put("l", "Likelyhood Weighting");
+	        put("l", "Likelihood Weighting");
 	}
 	};
 	
-	public static string inputFilePath = "./input.txt";
-	public static string outputFilePath = "/output.txt";
+	public static String inputFilePath = "./input.txt";
+	public static String outputFilePath = "./output.txt";
 			
 }
