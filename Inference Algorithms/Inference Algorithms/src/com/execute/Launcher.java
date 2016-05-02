@@ -10,6 +10,8 @@ import com.algorithm.InferenceAlogrithmFactory;
 import com.data.BayesianNetwork;
 import com.data.Constant;
 import com.data.EventNode;
+import com.io.InputReader;
+import com.io.OutputWriter;
 
 /**
  * This class responsible for launching the program and validating input 
@@ -44,7 +46,13 @@ public class Launcher {
 			query.add(network.getEventNode("A"));
 			long sampleCount = 1000;
 			
+			//InputReader inputReader = new InputReader();
+			//inputReader.readInput(network, Constant.inputFilePath);
+			
 			Map<EventNode, Float> result = inferenceAlgorithm.infer(evidence, query, sampleCount, network);
+			
+			//OutputWriter outputWriter = new OutputWriter();
+			//outputWriter.writeOutput(result, Constant.outputFilePath);
 			
 			/**
 			 * TO-TEST
