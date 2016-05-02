@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.data.BayesianNetwork;
+import com.data.EventNode;
 
 /**
  * @author Anwar
@@ -14,6 +15,6 @@ import com.data.BayesianNetwork;
  */
 public interface InferenceAlgorithm {
 
-	abstract public Map<String, Float> infer(Map<String, Float> evidence, List<String> query, 
+	abstract public Map<EventNode, Float> infer(Map<EventNode, Boolean> evidence, List<EventNode> query, 
 			long sampleCount, BayesianNetwork network);
-}
+};
