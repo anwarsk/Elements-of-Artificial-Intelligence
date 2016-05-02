@@ -1,8 +1,5 @@
 package com.execute;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.algorithm.InferenceAlgorithm;
@@ -11,7 +8,6 @@ import com.data.BayesianNetwork;
 import com.data.Constant;
 import com.data.EventNode;
 import com.io.InputReader;
-import com.io.OutputWriter;
 
 /**
  * This class responsible for launching the program and validating input 
@@ -29,8 +25,9 @@ public class Launcher {
 		assert(args.length > 3): "Invalid number of input parameters";
 		
 		String errorMessage = "";
-		String algorithm = args[1];
-		algorithm = "r";
+		String algorithm = args[0];
+		long sampleCount = Long.parseLong(args[1]);
+		
 		if(Constant.alogrithms.containsKey(algorithm))
 		{
 			BayesianNetwork network = new BayesianNetwork();
@@ -38,18 +35,25 @@ public class Launcher {
 			/**
 			 *  TO-TEST
 			 */
+/*			algorithm = "r";
+			long sampleCount = 1000;
 			Map<EventNode, Boolean> evidence = new HashMap<EventNode, Boolean>();
 			evidence.put(network.getEventNode("E"), true);
 			evidence.put(network.getEventNode("J"), false);
 			List<EventNode> query = new ArrayList<>();
 			query.add(network.getEventNode("M"));
-			query.add(network.getEventNode("A"));
-			long sampleCount = 1000;
+			query.add(network.getEventNode("A"));*/
 			
-			//InputReader inputReader = new InputReader();
-			//inputReader.readInput(network, Constant.inputFilePath);
-			
-			Map<EventNode, Float> result = inferenceAlgorithm.infer(evidence, query, sampleCount, network);
+			InputReader inputReader = new InputReader();
+			if(inputReader.readInput(network, Constant.inputFilePath)) {
+				Map<EventNode, Float> result = inferenceAlgorithm.infer(inputReader.getEvidence(),
+															inputReader.getQuery(), sampleCount, network);
+				
+				for(EventNode node : result.keySet())
+				{
+					System.out.println("NODE: " + node.getName() + "\t" + result.get(node));
+				}
+			}
 			
 			//OutputWriter outputWriter = new OutputWriter();
 			//outputWriter.writeOutput(result, Constant.outputFilePath);
@@ -58,10 +62,10 @@ public class Launcher {
 			 * TO-TEST
 			 */
 			
-			for(EventNode node : result.keySet())
+/*			for(EventNode node : result.keySet())
 			{
 				System.out.println("NODE: " + node.getName() + "\t" + result.get(node));
-			}
+			}*/
 		}
 		else
 		{

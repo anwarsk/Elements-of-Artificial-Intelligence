@@ -12,9 +12,12 @@ import java.util.Map;
 public class Constant {
 
 	public static final Map<String, String> alogrithms = new HashMap<String, String>(){
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
 		{
-			//“e”, “p”, “r”, “l”
-			
 	        put("e", "Enumeration");
 	        put("p", "Prior Sampling");
 	        put("r", "Rejection Sampling");
@@ -24,5 +27,6 @@ public class Constant {
 	
 	public static String inputFilePath = "./input.txt";
 	public static String outputFilePath = "./output.txt";
+	public static String inputSplitChar = " ";
 			
 }
