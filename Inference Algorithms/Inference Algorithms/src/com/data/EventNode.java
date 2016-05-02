@@ -53,8 +53,9 @@ public class EventNode {
 		this.value = value;
 	}
 
-	public ProbabilityValue getProbabilityValue() {
-		return probabilityValue;
+	public float getProbabilityValue() {
+		
+		return probabilityValue.getProbability(this.getParentNodes());
 	}
 
 	public void setProbabilityValue(ProbabilityValue probabilityValue) {
@@ -70,5 +71,18 @@ public class EventNode {
 		Collections.addAll(valuesList, values);
 		
 		this.probabilityValue = new ProbabilityValue(parentNodes, valuesList);
-	}	
-}
+	}
+	
+	public float getProbabilityValue(boolean...parentValues)
+	{
+		assert(parentNodes == null || parentValues.length == Math.pow(2, parentNodes.size())) : "Mismatch number of values and parents (4.1)";
+		assert(parentNodes != null || parentValues.length == 0) : "Mismatch number of values and parents (4.2)";
+		
+		return probabilityValue.getProbability(parentValues);
+	}
+
+	public boolean getBooleanValue() {
+		// TODO Auto-generated method stub
+		return this.value;
+	}
+};
