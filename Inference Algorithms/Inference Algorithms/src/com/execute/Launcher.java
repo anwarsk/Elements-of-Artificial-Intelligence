@@ -8,6 +8,7 @@ import com.data.BayesianNetwork;
 import com.data.Constant;
 import com.data.EventNode;
 import com.io.InputReader;
+import com.io.OutputWriter;
 
 /**
  * This class responsible for launching the program and validating input 
@@ -35,7 +36,7 @@ public class Launcher {
 			/**
 			 *  TO-TEST
 			 */
-/*			algorithm = "r";
+			/*	algorithm = "r";
 			long sampleCount = 1000;
 			Map<EventNode, Boolean> evidence = new HashMap<EventNode, Boolean>();
 			evidence.put(network.getEventNode("E"), true);
@@ -49,20 +50,15 @@ public class Launcher {
 				Map<EventNode, Float> result = inferenceAlgorithm.infer(inputReader.getEvidence(),
 															inputReader.getQuery(), sampleCount, network);
 				
-				for(EventNode node : result.keySet())
-				{
-					System.out.println("NODE: " + node.getName() + "\t" + result.get(node));
-				}
+				OutputWriter outputWriter = new OutputWriter();
+				outputWriter.writeOutput(result, Constant.outputFilePath);
 			}
-			
-			//OutputWriter outputWriter = new OutputWriter();
-			//outputWriter.writeOutput(result, Constant.outputFilePath);
 			
 			/**
 			 * TO-TEST
 			 */
 			
-/*			for(EventNode node : result.keySet())
+			/*	for(EventNode node : result.keySet())
 			{
 				System.out.println("NODE: " + node.getName() + "\t" + result.get(node));
 			}*/

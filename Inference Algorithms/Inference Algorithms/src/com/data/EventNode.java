@@ -24,21 +24,25 @@ public class EventNode {
 	}
 	
 	public List<EventNode> getParentNodes() {
+		if(parentNodes == null) {
+			parentNodes = new ArrayList<EventNode>();
+		}
 		return parentNodes;
 	}
 	
 	public void setParentNodes(EventNode...parentNodes) {
-		this.parentNodes = new ArrayList<EventNode>();
-		Collections.addAll(this.parentNodes, parentNodes);
+		Collections.addAll(this.getParentNodes(), parentNodes);
 	}
 	
 	public List<EventNode> getChildNodes() {
+		if(childNodes == null) {
+			childNodes = new ArrayList<EventNode>();
+		}
 		return childNodes;
 	}
 	
 	public void setChildNodes(EventNode...childNodes) {
-		this.childNodes = new ArrayList<EventNode>();
-		Collections.addAll(this.childNodes, childNodes);
+		Collections.addAll(this.getChildNodes(), childNodes);
 	}
 	
 	public String getName() {

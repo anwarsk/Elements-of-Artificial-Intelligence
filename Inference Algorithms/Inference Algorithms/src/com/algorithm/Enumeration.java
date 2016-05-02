@@ -3,13 +3,11 @@
  */
 package com.algorithm;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import com.data.BayesianNetwork;
 import com.data.EventNode;
-import com.data.ProbabilityValue;
 
 /**
  * @author Anwar
