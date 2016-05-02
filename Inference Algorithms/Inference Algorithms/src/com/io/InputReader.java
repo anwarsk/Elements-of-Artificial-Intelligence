@@ -17,7 +17,8 @@ import com.data.EventNode;
 public class InputReader {
 
 	private Map<EventNode, Boolean> evidence;
-	private List<EventNode> Query;
+	private List<EventNode> query;
+	private long sampleCount;
 	
 	public boolean readInput(BayesianNetwork network, String inputFilePath)
 	{
@@ -33,7 +34,11 @@ public class InputReader {
 	}
 
 	public List<EventNode> getQuery() {
-		return Query;
+		return query;
+	}
+	
+	public long getSampleCount() {
+		return sampleCount;
 	}
 	
 	

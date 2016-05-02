@@ -13,7 +13,7 @@ import com.data.EventNode;
  */
 public class OutputWriter {
 	
-	public boolean OutputWriter(Map<EventNode, Float> resultProbabilities, String outputFilePath)
+	public boolean writeOutput(Map<EventNode, Float> resultProbabilities, String outputFilePath)
 	{
 		boolean isSuccessful = false;
 		
