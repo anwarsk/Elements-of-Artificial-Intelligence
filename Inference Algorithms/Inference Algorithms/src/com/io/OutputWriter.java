@@ -5,15 +5,19 @@ package com.io;
 
 import java.util.Map;
 
+import com.data.EventNode;
+
 /**
  * @author Anwar
  *
  */
 public class OutputWriter {
 	
-	public OutputWriter(Map<String, Float> resultProbabilities)
+	public boolean OutputWriter(Map<EventNode, Float> resultProbabilities, String outputFilePath)
 	{
-		// Use output file path and generate Constant.outputFilePath
+		boolean isSuccessful = false;
+		
+		return isSuccessful;
 	}
 
 }
