@@ -34,7 +34,7 @@ public class ProbabilityValue {
 		{
 			for(EventNode event : parentNodes)
 			{
-				listIndex = (listIndex << 1) | (event.isValue() ? 1 : 0);
+				listIndex = (listIndex << 1) | (event.isValue() ? 0 : 1);
 			}
 		}
 
@@ -55,7 +55,7 @@ public class ProbabilityValue {
 
 		for(boolean parentValue : parentValues)
 		{
-			listIndex = (listIndex << 1) | (parentValue ? 1 : 0);
+			listIndex = (listIndex << 1) | (parentValue ? 0 : 1);
 		}
 
 
