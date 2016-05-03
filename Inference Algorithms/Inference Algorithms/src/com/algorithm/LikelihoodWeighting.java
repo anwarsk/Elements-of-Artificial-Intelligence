@@ -14,21 +14,40 @@ import com.data.BayesianNetwork;
 import com.data.EventNode;
 
 /**
- * @author Anwar
+ * The Class LikelihoodWeighting.
  *
+ * @author Anwar
  */
 public class LikelihoodWeighting implements InferenceAlgorithm {
 
 
+	/** The sampling values. */
 	private ArrayListValuedHashMap<EventNode, Boolean> samplingValues;
+	
+	/** The result. */
 	private Map<EventNode, Float> result;
+	
+	/** The evidence. */
 	private Map<EventNode, Boolean> evidence;
+	
+	/** The query. */
 	private List<EventNode> query;
+	
+	/** The network. */
 	private BayesianNetwork network;
+	
+	/** The sample count. */
 	private long sampleCount;
+	
+	/** The sample weights. */
 	private List<Float> sampleWeights;
+	
+	/** The total sample weight. */
 	private float totalSampleWeight;
 
+	/* (non-Javadoc)
+	 * @see com.algorithm.InferenceAlgorithm#infer(java.util.Map, java.util.List, long, com.data.BayesianNetwork)
+	 */
 	@Override
 	public Map<EventNode, Float> infer(Map<EventNode, Boolean> evidence, List<EventNode> query, long sampleCount,
 			BayesianNetwork network) {
@@ -51,6 +70,9 @@ public class LikelihoodWeighting implements InferenceAlgorithm {
 		return result;
 	}
 
+	/**
+	 * Initialize.
+	 */
 	private void initialize()
 	{
 		samplingValues  = new ArrayListValuedHashMap<EventNode, Boolean>();
@@ -70,6 +92,9 @@ public class LikelihoodWeighting implements InferenceAlgorithm {
 		}
 	}
 
+	/**
+	 * Sample data.
+	 */
 	private void sampleData()
 	{
 		totalSampleWeight = 0;
@@ -109,10 +134,11 @@ public class LikelihoodWeighting implements InferenceAlgorithm {
 		}
 	}
 
+	/**
+	 * Generate result.
+	 */
 	private void generateResult()
 	{
-		int evidenceCount = 0;
-
 		// Iterate over sampled data
 		for(int sampleIndex = 0; sampleIndex < sampleCount; sampleIndex++)
 		{

@@ -7,23 +7,33 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * This class holds the Bayesian Network
- * 
- * @author Anwar
+ * This class holds the Bayesian Network.
  *
+ * @author Anwar
  */
 public class BayesianNetwork {
 
+	/** The event nodes. */
 	Map<String, EventNode> eventNodes;
+	
+	/** The summation order. */
 	String[] summationOrder;
+	
+	/** The dependency order. */
 	EventNode[] dependencyOrder;
 
+	/**
+	 * Instantiates a new bayesian network.
+	 */
 	public BayesianNetwork()
 	{
 		createDefaultBayesianNetwork();
-		System.out.println("Network Created.");
+//		System.out.println("Network Created.");
 	}
 
+	/**
+	 * Creates the default bayesian network.
+	 */
 	private void createDefaultBayesianNetwork()
 	{
 		eventNodes = new HashMap<String,EventNode>();
@@ -74,15 +84,31 @@ public class BayesianNetwork {
 
 	}
 	
+	/**
+	 * Gets the summation order.
+	 *
+	 * @return the summation order
+	 */
 	public String[] getSummationOrder() {
 		return summationOrder;
 	}
 	
+	/**
+	 * Gets the dependency order.
+	 *
+	 * @return the dependency order
+	 */
 	public EventNode[] getDependencyOrder()
 	{
 		return dependencyOrder;
 	}
 
+	/**
+	 * Gets the event node.
+	 *
+	 * @param eventName the event name
+	 * @return the event node
+	 */
 	public EventNode getEventNode(String eventName)
 	{
 		assert(eventNodes.containsKey(eventName)): "Invalid Event Name";

@@ -6,13 +6,21 @@ package com.data;
 import java.util.List;
 
 /**
- * @author Anwar
+ * The Class ProbabilityValue.
  *
+ * @author Anwar
  */
 public class ProbabilityValue {
 
+	/** The values. */
 	List<Float> values;
 
+	/**
+	 * Instantiates a new probability value.
+	 *
+	 * @param parentNodes the parent nodes
+	 * @param values the values
+	 */
 	ProbabilityValue(List<EventNode> parentNodes, List<Float> values)
 	{
 		assert(parentNodes == null || values.size() == Math.pow(2, parentNodes.size())) : "Mismatch number of values and parents (1.1)";
@@ -21,6 +29,12 @@ public class ProbabilityValue {
 		this.values = values;
 	}
 
+	/**
+	 * Gets the probability.
+	 *
+	 * @param parentNodes the parent nodes
+	 * @return the probability
+	 */
 	public float getProbability(List<EventNode> parentNodes)
 	{
 		assert(parentNodes == null || values.size() == Math.pow(2, parentNodes.size())) : "Mismatch number of values and parents (2.1)";
@@ -43,6 +57,12 @@ public class ProbabilityValue {
 		return probability;
 	}
 
+	/**
+	 * Gets the probability.
+	 *
+	 * @param parentValues the parent values
+	 * @return the probability
+	 */
 	public float getProbability(boolean...parentValues)
 	{
 		assert(parentValues == null || values.size() == Math.pow(2, parentValues.length)) : "Mismatch number of values and parents (4.1)";

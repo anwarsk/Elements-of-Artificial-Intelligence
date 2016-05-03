@@ -6,11 +6,18 @@ package com.algorithm;
 import com.data.Constant;
 
 /**
- * @author Anwar
+ * A factory for creating InferenceAlogrithm objects.
  *
+ * @author Anwar
  */
 public class InferenceAlogrithmFactory {
 
+	/**
+	 * Gets the algorithm.
+	 *
+	 * @param algorithmName the algorithm name
+	 * @return the algorithm
+	 */
 	public static InferenceAlgorithm getAlgorithm(String algorithmName)
 	{
 		assert(Constant.alogrithms.containsKey(algorithmName)) : "Invalid algorithm specified.";

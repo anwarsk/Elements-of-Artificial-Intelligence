@@ -12,11 +12,19 @@ import java.util.Map;
 import com.data.EventNode;
 
 /**
- * @author Anwar
+ * The Class OutputWriter.
  *
+ * @author Anwar
  */
 public class OutputWriter {
 	
+	/**
+	 * Write output.
+	 *
+	 * @param resultProbabilities the result probabilities
+	 * @param outputFilePath the output file path
+	 * @return true, if successful
+	 */
 	public boolean writeOutput(Map<EventNode, Float> resultProbabilities, String outputFilePath)
 	{
 		boolean isSuccessful = false;
@@ -31,8 +39,8 @@ public class OutputWriter {
 
 			bw = new BufferedWriter(new FileWriter(file.getAbsoluteFile()));
 			for(EventNode node : resultProbabilities.keySet()) {
-				bw.write(node.getName() + "\t" + resultProbabilities.get(node) + "\n");
-				System.out.println("NODE: " + node.getName() + "\t" + resultProbabilities.get(node));
+				bw.write(node.getName() + " " + resultProbabilities.get(node) + "\n");
+				System.out.println(node.getName() + " " + resultProbabilities.get(node));
 			}
 			
 			// successful = true

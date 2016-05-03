@@ -11,6 +11,7 @@ import java.util.Map;
  */
 public class Constant {
 
+	/** The Constant alogrithms. */
 	public static final Map<String, String> alogrithms = new HashMap<String, String>(){
 		/**
 		 * 
@@ -25,8 +26,13 @@ public class Constant {
 	}
 	};
 	
+	/** The input file path. */
 	public static String inputFilePath = "./input.txt";
+	
+	/** The output file path. */
 	public static String outputFilePath = "./output.txt";
+	
+	/** The input split char. */
 	public static String inputSplitChar = " ";
 			
 }

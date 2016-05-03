@@ -9,14 +9,30 @@ import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
 import com.data.BayesianNetwork;
 import com.data.EventNode;
 
+/**
+ * The Class RejectionSampling.
+ */
 public class RejectionSampling implements InferenceAlgorithm {
 
+	/** The sampling values. */
 	private ArrayListValuedHashMap<EventNode, Boolean> samplingValues;
+	
+	/** The result. */
 	private Map<EventNode, Float> result;
+	
+	/** The evidence. */
 	private Map<EventNode, Boolean> evidence;
+	
+	/** The query. */
 	private List<EventNode> query;
+	
+	/** The network. */
 	private BayesianNetwork network;
+	
+	/** The sample count. */
 	private long sampleCount;
+	
+	/** The actual sample count. */
 	private long actualSampleCount;
 
 	/* (non-Javadoc)
@@ -43,6 +59,9 @@ public class RejectionSampling implements InferenceAlgorithm {
 		return result;
 	}
 
+	/**
+	 * Initialize.
+	 */
 	private void initialize()
 	{
 		samplingValues  = new ArrayListValuedHashMap<EventNode, Boolean>();
@@ -56,6 +75,9 @@ public class RejectionSampling implements InferenceAlgorithm {
 		}
 	}
 
+	/**
+	 * Sample data.
+	 */
 	private void sampleData()
 	{
 		// Sample the data in reverse order of the dependency
@@ -98,6 +120,9 @@ public class RejectionSampling implements InferenceAlgorithm {
 		}
 	}
 
+	/**
+	 * Generate result.
+	 */
 	private void generateResult()
 	{
 		//int evidenceCount = 0;

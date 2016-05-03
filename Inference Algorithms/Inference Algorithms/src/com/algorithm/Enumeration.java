@@ -8,23 +8,33 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
-
 import com.data.BayesianNetwork;
 import com.data.EventNode;
-import com.data.ProbabilityValue;
 
 /**
- * @author Anwar
+ * The Class Enumeration.
  *
+ * @author Anwar
  */
 public class Enumeration implements InferenceAlgorithm {
 
+	/** The result. */
 	private Map<EventNode, Float> result;
+	
+	/** The evidence. */
 	private Map<EventNode, Boolean> evidence;
+	
+	/** The query. */
 	private List<EventNode> query;
+	
+	/** The network. */
+	@SuppressWarnings("unused")
 	private BayesianNetwork network;
+	
+	/** The enumerated nodes. */
 	List<EventNode> enumeratedNodes;
+	
+	/** The factors. */
 	List<Factor> factors;
 
 	/* (non-Javadoc)
@@ -117,6 +127,9 @@ public class Enumeration implements InferenceAlgorithm {
 		return result;
 	}
 
+	/**
+	 * Initialize.
+	 */
 	private void initialize()
 	{
 		// Set Evidence Node values
@@ -188,8 +201,8 @@ class Factor extends EventNode
 			{
 				secondValue = secondValue * node.getProbabilityWithBooleanValue();
 			}
-			System.out.println("First Value :" + firstValue);
-			System.out.println("Second Value:" + secondValue);
+//			System.out.println("First Value :" + firstValue);
+//			System.out.println("Second Value:" + secondValue);
 			proabilityValues.add(firstValue + secondValue);
 		}
 

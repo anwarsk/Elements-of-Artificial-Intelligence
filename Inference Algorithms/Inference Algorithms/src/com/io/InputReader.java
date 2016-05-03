@@ -15,20 +15,38 @@ import com.data.Constant;
 import com.data.EventNode;
 
 /**
- * @author Anwar
+ * The Class InputReader.
  *
+ * @author Anwar
  */
 public class InputReader {
 
+	/** The evidence. */
 	private Map<EventNode, Boolean> evidence;
+	
+	/** The query. */
 	private List<EventNode> query;
+	
+	/** The sample count. */
 	private long sampleCount;
 	
+	/**
+	 * Read input.
+	 *
+	 * @param network the network
+	 * @param inputFilePath the input file path
+	 * @return true, if successful
+	 */
 	public boolean readInput(BayesianNetwork network, String inputFilePath)
 	{
 		return this.readConsoleInput(network);
 	}
 
+	/**
+	 * Gets the evidence.
+	 *
+	 * @return the evidence
+	 */
 	public Map<EventNode, Boolean> getEvidence() {
 		if(evidence == null) {
 			evidence = new HashMap<EventNode, Boolean>();
@@ -36,6 +54,11 @@ public class InputReader {
 		return evidence;
 	}
 
+	/**
+	 * Gets the query.
+	 *
+	 * @return the query
+	 */
 	public List<EventNode> getQuery() {
 		if(query == null) {
 			query = new ArrayList<EventNode>();
@@ -43,23 +66,32 @@ public class InputReader {
 		return query;
 	}
 	
+	/**
+	 * Gets the sample count.
+	 *
+	 * @return the sample count
+	 */
 	public long getSampleCount() {
 		return sampleCount;
 	}
 	
+	/**
+	 * Read console input.
+	 *
+	 * @param network the network
+	 * @return true, if successful
+	 */
 	private boolean readConsoleInput(BayesianNetwork network) {
 		boolean isSuccessful = false;
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			// read number of evidence & query variables
-			System.out.println("Enter the number of evidence & query variables. Eg: 2 1");
 			String numParams = br.readLine();
 			
 			int numEvidence = Integer.parseInt(numParams.split(Constant.inputSplitChar)[0]);
 			int numQuery = Integer.parseInt(numParams.split(Constant.inputSplitChar)[1]);
 			
 			// read evidence variables as input
-			System.out.println("Enter the evidence variables, each on new line (Eg: E t).");
 			while(numEvidence-- != 0) {
 				String evidenceVars = br.readLine();
 				String evidenceName = evidenceVars.split(Constant.inputSplitChar)[0];
@@ -70,13 +102,12 @@ public class InputReader {
 			}
 			
 			// read query variables as input
-			System.out.println("Enter the query variables, each on new line (Eg: J).");
 			while(numQuery-- != 0) {
 				String queryVar = br.readLine();
 				this.getQuery().add(network.getEventNode(queryVar));
 			}
 			
-			// successfull = true
+			// set iSuccessfull flag
 			isSuccessful = true;
 		} catch(Exception ex) {
 			System.err.println("Exception during input processing: " + ex);
