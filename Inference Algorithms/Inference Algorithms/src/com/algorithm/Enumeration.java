@@ -34,6 +34,13 @@ public class Enumeration implements InferenceAlgorithm {
 			long sampleCount, BayesianNetwork network) {
 		// TODO Auto-generated method stub
 
+		// Initialize result map
+		result = new HashMap<EventNode, Float>();
+		for(EventNode queryNode : query)
+		{
+			result.put(queryNode, 0f);
+		}
+
 		for(EventNode queryNode: query)
 		{
 			this.evidence = evidence;
@@ -85,7 +92,7 @@ public class Enumeration implements InferenceAlgorithm {
 					factorParents.removeAll(evidence.keySet());
 					factorParents.remove(node);
 					factorParents.removeAll(enumeratedNodes);
-					
+
 					Factor factor = new Factor(nodesToConsider, nodesToEnumerate, factorParents, node);
 					factor.enumerate();
 
@@ -103,7 +110,7 @@ public class Enumeration implements InferenceAlgorithm {
 			queryNode.setValue(false);
 			float inverseFactorProbability = factors.get(0).getProbabilityValue() * queryNode.getProbabilityWithBooleanValue();
 			resultantProbability = factorProbability / (factorProbability + inverseFactorProbability);
-			
+
 			result.put(queryNode, resultantProbability);
 		}
 
@@ -118,12 +125,6 @@ public class Enumeration implements InferenceAlgorithm {
 			evidenceNode.setValue(evidence.get(evidenceNode));
 		}
 
-		// Initialize result map
-		result = new HashMap<EventNode, Float>();
-		for(EventNode queryNode : query)
-		{
-			result.put(queryNode, 0f);
-		}
 
 		enumeratedNodes = new ArrayList<EventNode>();
 		factors = new ArrayList<Factor>();
